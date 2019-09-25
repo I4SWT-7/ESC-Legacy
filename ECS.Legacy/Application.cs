@@ -1,16 +1,27 @@
-﻿namespace ECS.Legacy
+﻿using System;
+using System.Runtime.InteropServices;
+
+namespace ECS.Legacy
 {
     public class Application
     {
         public static void Main(string[] args)
         {
-            var ecs = new ECS(28);
+            var fakeecs = new ECS(28, new FakeTempSensor(), new FakeHeater());
 
-            ecs.Regulate();
+            System.Console.WriteLine(fakeecs.RunSelfTest());
 
-            ecs.SetThreshold(20);
+            fakeecs.Regulate();
 
-            ecs.Regulate();
+            fakeecs.SetThreshold(0);
+
+            fakeecs.Regulate();
+
+            System.Console.WriteLine(fakeecs.RunSelfTest());
+
+            System.Console.ReadKey();
+
+
         }
     }
 }
