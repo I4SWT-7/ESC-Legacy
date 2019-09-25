@@ -14,7 +14,7 @@
 
         public bool RunSelfTest()
         {
-            return true;
+            return true; 
         }
     }
 }
