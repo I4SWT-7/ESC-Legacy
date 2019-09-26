@@ -48,7 +48,7 @@ namespace ClassLibrary.ECS.test
             _uut.Regulate();
             _heater.Received(1).TurnOff();
         }
-
     }
 
 }
+
